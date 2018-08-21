@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import Header from './common/Header';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import HomePage from './home/HomePage';
+import Header from './common/Header';
+import Main from './Main';
 
-class App extends Component {
-  render() {
-    console.log(this.props);
-    return (
-      <div className="container-fluid">
-        <Header />
-        <HomePage />
-      </div>
-    );
-  }
+const App = ({ loading }) => {
+  return (
+    <div>
+      <Header />
+      <Main />
+      {loading && <div className="loader">Loading...</div>}
+    </div>
+  )
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+  return { loading: state.ajaxCallsInProgress > 0 };
+}
+
+export default connect(mapStateToProps)(App);

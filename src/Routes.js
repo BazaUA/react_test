@@ -1,11 +1,14 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import App from './components/App';
+import { Route, Switch } from 'react-router-dom';
+import PostDetails from './components/posts/PostDetails';
+import HomePage from './components/home/HomePage';
 
 const Routes = () => {
   return (
-    <Route path="/" component={App}>
-    </Route>
+    <Switch>
+      <Route exact path='/' component={HomePage} />
+      <Route path='/post/:id' component={PostDetails} />
+    </Switch>
   );
 };
 
