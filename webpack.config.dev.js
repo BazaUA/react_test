@@ -7,28 +7,28 @@ export default {
   entry: [
     'eventsource-polyfill',
     'webpack-hot-middleware/client?reload=true',
-    path.resolve(__dirname, 'src/index')
+    path.resolve(__dirname, 'src/index'),
   ],
   target: 'web',
   output: {
     path: `${__dirname}/dist`,
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'src'),
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
   module: {
     rules: [
       { test: /\.js$/, include: path.join(__dirname, 'src'), use: ['babel-loader'] },
       { test: /(\.css)$/, use: ['style-loader', 'css-loader'] },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader' },
-      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
-    ]
-  }
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+    ],
+  },
 };

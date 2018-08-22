@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { getPostById, postsFetch } from '../../actions'
+import { getPostById } from '../../actions';
 
 class PostDetails extends Component {
-  componentDidUpdate() {
-    window.scrollTo(0,0);
-  }
-  
   componentWillMount() {
-    const { id } = this.props.match.params;
+    const { id } = this.props.match.params; // eslint-disable-line
     if (id) {
-      this.props.getPostById(id);
+      this.props.getPostById(id); // eslint-disable-line react/destructuring-assignment
     }
   }
+
+  componentDidUpdate() {
+    window.scrollTo(0, 0); // eslint-disable-line no-undef
+  }
+
   render() {
     const { post } = this.props;
     return (
@@ -21,7 +21,7 @@ class PostDetails extends Component {
         <div className="row">
           <div className="col-lg-8 col-md-10 mx-auto">
             <h2 className="post-title">{post.title.rendered}</h2>
-            <div dangerouslySetInnerHTML={{ __html: post.content.rendered }}></div>
+            <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />{/* eslint-disable-line */}
           </div>
         </div>
       </div>
@@ -29,11 +29,12 @@ class PostDetails extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  let post = { title: { rendered: '' }, content: { rendered: '' } }
-  if (state.data[0]) {
-    post = state.data[0];
+  let post = { title: { rendered: '' }, content: { rendered: '' } };
+  const [first] = state.data;
+  if (first) {
+    post = first;
   }
   return { post };
-}
+};
 
 export default connect(mapStateToProps, { getPostById })(PostDetails);

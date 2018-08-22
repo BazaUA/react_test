@@ -4,7 +4,7 @@ import AjaxStatusReducer from './AjaxStatusReducer';
 
 const rootReducer = combineReducers({
   data: JsonDataReducer,
-  ajaxCallsInProgress: AjaxStatusReducer
+  ajaxCallsInProgress: AjaxStatusReducer,
 });
 
 export default rootReducer;

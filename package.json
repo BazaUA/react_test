@@ -6,7 +6,6 @@
     "start": "npm-run-all --parallel open:src",
     "open:src": "babel-node tools/srcServer.js",
     "lint": "node_modules/.bin/eslint webpack.config.* src tools",
-    "lint:watch": "npm run lint -- --watch",
     "test": "react-scripts test --env=jsdom"
   },
   "dependencies": {
