@@ -1,8 +1,7 @@
-/*eslint-disable import/default*/
 import 'babel-polyfill';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import { render } from 'react-dom';
@@ -20,6 +19,5 @@ render(
       <App />
     </BrowserRouter>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('app'), // eslint-disable-line no-undef
 );
-
