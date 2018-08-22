@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { getPostById, postsFetch } from '../../actions'
 
 class PostDetails extends Component {
+  componentDidUpdate() {
+    window.scrollTo(0,0);
+  }
+  
   componentWillMount() {
     const { id } = this.props.match.params;
     if (id) {

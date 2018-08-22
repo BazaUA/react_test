@@ -1,10 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <nav>
-      <NavLink to="/" activeClassName="active">Home</NavLink>
+      <Link className='sticky' to="/">Home</Link>{' '}
     </nav>
   );
 };

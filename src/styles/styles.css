@@ -56,6 +56,13 @@ nav {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  margin: 10px 0 0 10px;
+
+}
+
 .loader {
     color: #919191;
     font-size: 90px;
