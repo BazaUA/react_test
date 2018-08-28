@@ -5,14 +5,13 @@ import { getPostById } from '../../actions';
 class PostDetails extends Component {
   componentWillMount() {
     const { id } = this.props.match.params; // eslint-disable-line
-    if (id) {
-      this.props.getPostById(id); // eslint-disable-line react/destructuring-assignment
-    }
+    this.props.getPostById(id); // eslint-disable-line react/destructuring-assignment
   }
 
   componentDidUpdate() {
     window.scrollTo(0, 0); // eslint-disable-line no-undef
   }
+
 
   render() {
     const { post } = this.props;
@@ -30,7 +29,11 @@ class PostDetails extends Component {
 }
 const mapStateToProps = (state) => {
   let post = { title: { rendered: '' }, content: { rendered: '' } };
-  const [first] = state.data;
+  const { data } = state;
+  if (data.length > 1) {
+    return { post };
+  }
+  const [first] = data;
   if (first) {
     post = first;
   }
